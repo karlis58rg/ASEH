@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Registro">
+
+    <ImageView
+        android:id="@+id/imgHeader"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_registrate_" />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:drawableLeft="@drawable/user"
+        android:ems="10"
+        android:hint="Nombre(s)"
+        android:inputType="textCapCharacters|text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgHeader"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ "/>
+
+    <EditText
+        android:id="@+id/txtApaterno"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textCapCharacters"
+        android:hint="A. Paterno"
+        android:drawableLeft="@drawable/user"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ "/>
+
+    <EditText
+        android:id="@+id/txtAmaterno"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textCapCharacters"
+        android:hint="A. Materno"
+        android:drawableLeft="@drawable/user"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtApaterno"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ "/>
+
+    <EditText
+        android:id="@+id/txtTelefono"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Telefono"
+        android:drawableLeft="@drawable/phone"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAmaterno"
+        android:maxLength="10"/>
+
+    <Spinner
+        android:id="@+id/spinCargo"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_redondo"
+        android:text="Guardar"
+        android:textColor="@color/text"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinCargo" />
+
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="5dp"
+        android:tint="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/imgHeader"
+        app:layout_constraintEnd_toEndOf="@+id/imgHeader"
+        app:layout_constraintStart_toStartOf="@+id/imgHeader"
+        app:srcCompat="@drawable/avatar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

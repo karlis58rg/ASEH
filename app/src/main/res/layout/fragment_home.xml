@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroolEventos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imgHeader">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgActividades"
+                android:layout_width="160dp"
+                android:layout_height="155dp"
+                android:scaleType="fitXY"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_inicio_revision" />
+
+            <TextView
+                android:id="@+id/lblIniciaActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inicio de Revisión"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgActividades" />
+
+            <ImageView
+                android:id="@+id/imgRevision"
+                android:layout_width="160dp"
+                android:layout_height="155dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblIniciaActividad"
+                app:srcCompat="@drawable/ic_control_vehicular"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/lblRevision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Control Vehicular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgRevision" />
+
+            <ImageView
+                android:id="@+id/imgPanico"
+                android:layout_width="160dp"
+                android:layout_height="155dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblRevision"
+                app:srcCompat="@drawable/ic_boton911"
+                android:scaleType="fitXY"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/lblBotonPanico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BOTÓN DE PANICO"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgPanico"
+                android:layout_marginBottom="100dp"
+                android:visibility="gone"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

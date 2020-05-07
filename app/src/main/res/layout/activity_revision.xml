@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Revision">
+
+    <ImageView
+        android:id="@+id/imgHeader"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_barracasayh_911"
+        android:scaleType="fitXY"/>
+
+    <ScrollView
+        android:id="@+id/scroolEventos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgHeader">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgOfficer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+            <EditText
+                android:id="@+id/txtPlacaRevision"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
+                android:drawableLeft="@drawable/numbers"
+                android:ems="10"
+                android:hint=" ** Captura la placa **"
+                android:inputType="textCapCharacters|text"
+                android:maxLength="8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgOfficer" />
+
+            <Button
+                android:id="@+id/btnConsultarRevision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONSULTAR INFORMACIÓN"
+                android:textColor="@color/text"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/boton_redondo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPlacaRevision"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/lblInformacionRevision"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:hint="SIN INFORMACIÓN"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPlacaRevision"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnGenerarRevision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AGREGAR OBSERVACIONES"
+                android:textColor="@color/text"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/boton_redondo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinRevision"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/lblMotivos"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Motivos:"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPlacaRevision" />
+
+            <Spinner
+                android:id="@+id/spinRevision"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblMotivos"
+                android:entries="@array/revision"/>
+
+            <EditText
+                android:id="@+id/txtFolioMulta"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="No. de Folio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinRevision"
+                android:inputType="number"
+                android:maxLength="10"
+                />
+
+            <TextView
+                android:id="@+id/lblComentarios"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Comentarios:"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFolioMulta" />
+
+            <EditText
+                android:id="@+id/txtObservaciones"
+                android:layout_width="270dp"
+                android:layout_height="150dp"
+                android:gravity="start|top"
+                android:hint="Agregar comentarios"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblComentarios" />
+
+            <Button
+                android:id="@+id/btnGuardarRevision"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/boton_redondo"
+                android:text="GUARDAR"
+                android:textColor="@color/text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblVehiculoOficial"
+                android:layout_marginBottom="100dp"/>
+
+            <TextView
+                android:id="@+id/lblLatitudR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LATITUD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnGuardarRevision"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/lblLongitudR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LONGITUD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblLatitudR"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/lblDireccionR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DIRECCION"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblLongitudR"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/imgOcr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txtPlacaRevision"
+                app:layout_constraintTop_toBottomOf="@+id/imgOfficer"
+                app:srcCompat="@drawable/ocr" />
+
+            <TextView
+                android:id="@+id/lblAntecedentes"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Histórico:"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtObservaciones" />
+
+            <TextView
+                android:id="@+id/lblRetorno"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblAntecedentes"
+                android:background="@color/background"/>
+
+            <TextView
+                android:id="@+id/lblMulta"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblRetorno" />
+            <TextView
+                android:id="@+id/lblRecomendacion"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblMulta"
+                android:background="@color/background"/>
+            <TextView
+                android:id="@+id/lblPermiso"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblRecomendacion"/>
+            <TextView
+                android:id="@+id/lblVehiculoOficial"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblPermiso"
+                android:background="@color/background"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

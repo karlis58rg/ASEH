@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "754870003779",
+    "firebase_url": "https://aseh-97804.firebaseio.com",
+    "project_id": "aseh-97804",
+    "storage_bucket": "aseh-97804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754870003779:android:02efdd0661067446f54cf6",
+        "android_client_info": {
+          "package_name": "mx.hgo.aseh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754870003779-8n480l685do46veai1mjan8ab7bigu2s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.hgo.aseh",
+            "certificate_hash": "09a975db5393517222d8591817a478b6225897c2"
+          }
+        },
+        {
+          "client_id": "754870003779-nj0sjccaj82uvvp87ck0ovbi6qkasf93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzO39ydXaOT9EhpByfsF1POs-B26kMOnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754870003779-nj0sjccaj82uvvp87ck0ovbi6qkasf93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
