@@ -61,8 +61,9 @@ public class Revision extends AppCompatActivity {
     Button btnConsultaRS,btnAgregaRS,btnGuardaRS;
     EditText txtPlacaRS,txtObservacionesRS,txtFolio;
     Spinner spinRevisionRS;
-    TextView lblInformacionRS,latitud,longitud,direccion,retornos,vehiculoAsegurado,recomendaciones,vehiculoActiEsen,vehiOficial;
+    TextView lblInformacionRS,latitud,longitud,direccion,retornos,vehiculoAsegurado,recomendaciones,vehiculoActiEsen,vehiOficial,vehiculoExento;
     String placaRS,hora,fecha,cargarInfoRFC,observaciones,infraccion,mensaje1,mensaje2,folioRS;
+    int valorExento = 0;
     /*********** SHARE PREFERENCE ************/
     SharedPreferences share;
     SharedPreferences.Editor editor;
@@ -104,6 +105,7 @@ public class Revision extends AppCompatActivity {
         vehiculoAsegurado = findViewById(R.id.lblMulta);
         vehiculoActiEsen = findViewById(R.id.lblPermiso);
         vehiOficial = findViewById(R.id.lblVehiculoOficial);
+        vehiculoExento = findViewById(R.id.lblVehiculoExento);
 
         txtFolio = findViewById(R.id.txtFolioMulta);
         txtFolio.setVisibility(View.GONE);
@@ -148,6 +150,8 @@ public class Revision extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), " LA PLACA NO PUEDE SER MENOR A TRES LETRAS.", Toast.LENGTH_LONG).show();
                 }else if(spinRevisionRS.getSelectedItem().equals("--Seleccione--")){
                     Toast.makeText(getApplicationContext(), " DEBE SELECCIONAR UN MOTIVO POR EL CUAL EL AUTOMOVILISTA ES DETENIDO", Toast.LENGTH_LONG).show();
+                }else if(txtObservacionesRS.toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), " DEBE AGREGAR ALGÚN COMENTARIO", Toast.LENGTH_LONG).show();
                 }else{
                     insertRevisionSanitaria();
                 }
@@ -181,6 +185,7 @@ public class Revision extends AppCompatActivity {
                         getVehiculoAsegurado();
                         getActividadEsencial();
                         getVehiculoOficial();
+                        getVehiculoExento();
                         //Toast.makeText(getApplicationContext(), "no", Toast.LENGTH_LONG).show();
                     }
                 return false;
@@ -383,6 +388,89 @@ public class Revision extends AppCompatActivity {
                             resp = resp.trim();//QUITA LOS ESPACIOS AL INICIO Y AL FINAL DE LA ORACIÒN
                             System.out.println(resp);
                             vehiOficial.setText("Vehículo Oficial:"+" "+resp);
+                            //Looper.loop();
+                        }
+                    });
+                }
+            }
+
+        });
+    }
+
+    /******************GET A LA BD***********************************/
+    public void getVehiculoExento() {
+        placaRS = txtPlacaRS.getText().toString().toUpperCase();
+        final OkHttpClient client = new OkHttpClient();
+        final Request request = new Request.Builder()
+                .url("http://187.174.102.131:92/api/RevisionSanitaria?placa="+placaRS+"&vehiculoExento=Vehículo Exento")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                Looper.prepare();
+                Toast.makeText(getApplicationContext(),"ERROR AL OBTENER LA INFORMACIÓN, POR FAVOR VERIFIQUE SU CONEXIÓN A INTERNET",Toast.LENGTH_SHORT).show();
+                Looper.loop();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    final String myResponse = response.body().string();
+                    Revision.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Looper.prepare(); // to be able to make toast
+                            String resp = myResponse;
+                            resp = resp.replace('"',' '); //REEMPLAZA LOS CARACTERES POR NUEVOS
+                            resp = resp.trim();//QUITA LOS ESPACIOS AL INICIO Y AL FINAL DE LA ORACIÒN
+                            System.out.println(resp);
+                            vehiculoExento.setText("Vehículo Exento:"+" "+resp);
+                            vehiculoExento.setBackgroundColor(Color.parseColor("#FF4848"));
+                            valorExento = Integer.parseInt(resp) ;
+                            getVehiculoPlacaExento();
+                        }
+                    });
+                }
+            }
+
+        });
+    }
+
+    /******************GET A LA BD***********************************/
+    public void getVehiculoPlacaExento() {
+        placaRS = txtPlacaRS.getText().toString().toUpperCase();
+        final OkHttpClient client = new OkHttpClient();
+        final Request request = new Request.Builder()
+                .url("http://187.174.102.131:92/api/RevisionSanitaria?placaVExento="+placaRS)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                Looper.prepare();
+                Toast.makeText(getApplicationContext(),"ERROR AL OBTENER LA INFORMACIÓN, POR FAVOR VERIFIQUE SU CONEXIÓN A INTERNET",Toast.LENGTH_SHORT).show();
+                Looper.loop();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    final String myResponse = response.body().string();
+                    Revision.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Looper.prepare(); // to be able to make toast
+                            String resp = myResponse;
+                            resp = resp.replace('"',' '); //REEMPLAZA LOS CARACTERES POR NUEVOS
+                            resp = resp.trim();//QUITA LOS ESPACIOS AL INICIO Y AL FINAL DE LA ORACIÒN
+                            System.out.println(resp);
+                            if(valorExento >= 1){
+                                txtObservacionesRS.setText(resp);
+                            }else {
+                                txtObservacionesRS.setText("");
+                                vehiculoExento.setBackgroundColor(Color.TRANSPARENT);
+                            }
                             //Looper.loop();
                         }
                     });

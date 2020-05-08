@@ -197,7 +197,6 @@ public class Registro extends AppCompatActivity {
                     }
                     Log.i("HERE", resp);
                 }
-
             }
 
         });
