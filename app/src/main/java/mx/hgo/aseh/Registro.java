@@ -104,6 +104,10 @@ public class Registro extends AppCompatActivity {
         apaterno = txtApaternoR.getText().toString().toUpperCase();
         amaterno = txtAmaternoR.getText().toString().toUpperCase();
 
+        nombre = nombre.trim();
+        apaterno = apaterno.trim();
+        amaterno = amaterno.trim();
+
         final OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
                 .url("http://187.174.102.131:92/api/Usuarios?nombres="+nombre+"&apaterno="+apaterno+"&amaterno="+amaterno+"")
@@ -153,6 +157,10 @@ public class Registro extends AppCompatActivity {
         apaterno = txtApaternoR.getText().toString().toUpperCase();
         amaterno = txtAmaternoR.getText().toString().toUpperCase();
         telefono = txtTelefonoR.getText().toString();
+
+        nombre = nombre.trim();
+        apaterno = apaterno.trim();
+        amaterno = amaterno.trim();
 
         final OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
@@ -209,9 +217,11 @@ public class Registro extends AppCompatActivity {
         amaterno = txtAmaternoR.getText().toString().toUpperCase();
         telefono = txtTelefonoR.getText().toString();
         cargo = (String) spinCargoR.getSelectedItem();
+
         nombre = nombre.trim();
         apaterno = apaterno.trim();
         amaterno = amaterno.trim();
+
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
                 .add("Nombres",nombre)
