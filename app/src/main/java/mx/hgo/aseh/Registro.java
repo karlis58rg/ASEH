@@ -56,7 +56,6 @@ public class Registro extends AppCompatActivity {
     SharedPreferences share;
     SharedPreferences.Editor editor;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
