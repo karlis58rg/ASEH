@@ -556,7 +556,7 @@ public class Revision extends AppCompatActivity {
         });
     }
 
-    /************************************ PERMISO DE OCR Y GPS ***********************************************/
+    /************************************ PERMISO DE GPS ***********************************************/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 

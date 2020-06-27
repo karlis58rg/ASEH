@@ -234,7 +234,6 @@ public class RegistroActividad extends AppCompatActivity {
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         hora = timeFormat.format(time);
 
-
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
                 .add("Placa",placaTemp)
